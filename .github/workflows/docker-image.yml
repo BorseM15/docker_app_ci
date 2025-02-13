@@ -19,7 +19,7 @@ jobs:
           USER: ${{ secrets.DOCKER_USER }}
           PASS: ${{ secrets.DOCKER_PASS }}
         run: |
-          docker build -t monaliborse15/devops-ci-demo-2026:v1 .
+          docker build -t ${{ secrets.DOCKER_USER }}/devops-ci-demo-2026:v1 .
          
       - name: Docker login
         run: |
@@ -27,4 +27,4 @@ jobs:
  
       - name: Push Docker image to Docker Hub
         run: |
-          docker push monaliborse15/devops-ci-demo-2026:v1
+          docker push  ${{ secrets.DOCKER_USER }}/devops-ci-demo-2026:v1
